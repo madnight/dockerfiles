@@ -1,3 +1,25 @@
+ ### Usage
+ 
+ ```bash
+# run a tor relay in a container
+
+# Bridge relay:
+docker run -d \
+  --restart always \
+  -v /etc/localtime:/etc/localtime:ro \
+  -p 9001:9001 \
+  --name tor-relay \
+  jess/tor-relay -f /etc/tor/torrc.bridge
+
+# Exit relay:
+docker run -d \
+  --restart always \
+  -v /etc/localtime:/etc/localtime:ro \
+  -p 9001:9001 \
+  --name tor-relay \
+  jess/tor-relay -f /etc/tor/torrc.exit
+```
+ 
  ### Environment variables
 
 | Name                         | Description                                                                  | Default value |
